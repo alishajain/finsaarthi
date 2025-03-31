@@ -1,0 +1,182 @@
+/* Reset some default styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container to hold the two halves */
+.records-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh; /* Full height of the screen */
+  width: 100%; /* Full width */
+  position: relative; /* For positioning the back button */
+}
+
+/* Back Button Styling */
+.back-button {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  width: 80px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
+
+/* Style for the left half (deals section) */
+.records-left-half {
+  flex: 1.5; /* Takes up 60% of the screen */
+  padding: 20px;
+  overflow-y: auto; /* Allow scrolling if content exceeds screen */
+  background-color: #f9f9f9; /* Light background for contrast */
+}
+
+.records-left-half h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.records-left-half h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.records-left-half p {
+  font-size: 1em;
+  margin-bottom: 15px;
+}
+
+/* Style for the right half (payments section) */
+.records-right-half {
+  flex: 1; /* Takes up 40% of the screen */
+  padding: 20px;
+  overflow-y: auto; /* Allow scrolling if content exceeds screen */
+  background-color: #f9f9f9; /* Light background for contrast */
+}
+
+.records-right-half h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Style for the records table */
+.records-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.records-table th,
+.records-table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.records-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.records-table td {
+  background-color: #fff;
+}
+
+.records-table tr:nth-child(even) td {
+  background-color: #f9f9f9; /* Alternating row colors */
+}
+
+.records-table tr:hover {
+  background-color: #f1f1f1; /* Highlight row on hover */
+}
+
+/* Styling for "No data found" message */
+.records-table td[colspan="7"] {
+  text-align: center;
+  font-style: italic;
+  color: #888;
+}
+
+/* Responsive Design: Stack the columns on smaller screens */
+@media (max-width: 1024px) {
+  /* For tablets or small desktop screens */
+  .records-container {
+    flex-direction: column; /* Stack the sections vertically */
+  }
+
+  .records-left-half,
+  .records-right-half {
+    flex: none; /* Let them take full width */
+    width: 100%;
+    padding: 15px; /* Reduced padding for smaller screens */
+  }
+
+  .records-table {
+    font-size: 14px; /* Slightly smaller font size for mobile view */
+  }
+}
+
+@media (max-width: 768px) {
+  /* For mobile screens */
+  .records-container {
+    flex-direction: column; /* Stack the sections vertically */
+  }
+
+  .records-left-half,
+  .records-right-half {
+    flex: none; /* Let them take full width */
+    width: 100%;
+    padding: 10px; /* Reduced padding for small screens */
+  }
+
+  .records-table {
+    font-size: 12px; /* Further reduced font size for mobile view */
+  }
+
+  /* Adjust table layout for smaller screens */
+  .records-table th,
+  .records-table td {
+    padding: 8px; /* Less padding for smaller screens */
+  }
+
+  /* Responsive table header */
+  .records-table th {
+    font-size: 13px; /* Smaller font size for headers on mobile */
+  }
+}
+
+/* Styling for very small mobile screens */
+@media (max-width: 480px) {
+  /* Reduce font size for very small screens */
+  .records-table th,
+  .records-table td {
+    padding: 6px; /* Minimal padding for compact screens */
+    font-size: 10px; /* Even smaller font size */
+  }
+
+  /* Adjust the padding and margins further */
+  .records-left-half,
+  .records-right-half {
+    padding: 8px; /* Even less padding for ultra-small screens */
+  }
+
+  .records-table {
+    font-size: 10px; /* Even smaller font size for mobile */
+  }
+
+  /* Make text alignments more compact */
+  .records-table th {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,96 @@
+.SearchRecord-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.SearchRecord-table-container {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.SearchRecord-table-container table {
+    width: 100%;
+    border: 1px solid #ddd;
+    table-layout: fixed;
+}
+
+.SearchRecord-table-container th,
+.SearchRecord-table-container td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.SearchRecord-table-container th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.SearchRecord-table-container td {
+    background-color: #fafafa;
+}
+
+.SearchRecord-table-container tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.SearchRecord-table-container tr:hover {
+    background-color: #e0f7fa;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.SearchRecord-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px; /* Increased max width for more spacing between buttons */
+    margin: 20px auto;
+    gap: 10px; /* Added gap between buttons */
+}
+
+.SearchRecord-buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #008080;
+    color: white;
+    border-radius: 5px;
+    width: 100%; /* Optional: makes buttons take equal width */
+}
+
+.SearchRecord-buttons button:hover {
+    background-color: #006666;
+}
+
+.SearchRecord-buttons button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Ensure the Update button in UpdateRecord is also styled like the other buttons */
+.UpdateRecord-buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #008080;
+    color: white;
+    border-radius: 5px;
+    width: 100%; /* Optional: makes buttons take equal width */
+}
+
+.UpdateRecord-buttons button:hover {
+    background-color: #006666;
+}

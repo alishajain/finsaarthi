@@ -1,0 +1,86 @@
+.table-container {
+  margin: 20px;
+}
+
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-label {
+  margin-right: 10px;
+}
+
+.search-input {
+  padding: 8px;
+  margin-right: 10px;
+  width: 200px;
+}
+
+.search-options {
+  display: flex;
+  gap: 10px;
+}
+
+.id-search-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.id-search-container .search-label {
+  margin-right: 10px;
+}
+
+.id-search-container .search-input {
+  padding: 8px;
+  margin-right: 10px;
+  width: 150px; /* Decreased the width */
+}
+
+.details-btn {
+  padding: 6px 10px; /* Decreased the padding */
+  cursor: pointer;
+  background-color: #008080;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 120px; /* Set a specific width */
+}
+
+.tables-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tables-table th, .tables-table td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.table-details {
+  margin-top: 20px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.table-details h2 {
+  margin-top: 0;
+}
+
+.back-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 15px;
+  cursor: pointer;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 120px;
+}
+
