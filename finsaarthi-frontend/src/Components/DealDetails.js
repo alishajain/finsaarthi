@@ -48,6 +48,11 @@ const DealDetails = ({ DealNo, onClose }) => {
                     <th>Quantity</th>
                     <th>Price</th>
                     <th>Total</th>
+                    <th>User ID</th>
+                    <th>Guage</th>
+                    <th>Year</th>
+                    <th>Invoice Value</th>
+                    <th>GST Value</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -58,6 +63,11 @@ const DealDetails = ({ DealNo, onClose }) => {
                       <td>{deal.Quantity}</td>
                       <td>{deal.Price}</td>
                       <td>{deal.Total}</td>
+                      <td>{deal.UserId}</td>
+                      <td>{deal.Guage}</td>
+                      <td>{deal.year}</td>
+                      <td>{deal.Invoice_Value}</td>
+                      <td>{deal.GST_value}</td>
                     </tr>
                   ))}
                 </tbody>

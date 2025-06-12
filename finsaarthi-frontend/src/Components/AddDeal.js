@@ -16,12 +16,24 @@ const AddDeal = () => {
     CompanyName: "",
     Total: 0,
     GST: "",
-    Kacha: 0,
-    Pakka: 0,
     FreeService: "",
     Remarks: "",
     Status: "",
     UserId: userId,
+    Agent: "",
+    Commission: 0,
+    Tentative_Delivery_Date: "",
+    Interest: 0,
+    Machine_Warranty: "",
+    Accessories: "",
+    Others: "",
+    Quantity: 0,
+    Invoice_Value: 0,
+    Cash: 0,
+    Bank: 0,
+    Booking_Amt: 0,
+    Before_Delivery: 0,
+    Balance_Payment: 0
   });
 
   const [names, setNames] = useState([]);
@@ -52,30 +64,9 @@ const AddDeal = () => {
     fetchDealNo();
   }, []);
 
-  // Update Pakka when Total changes
-  useEffect(() => {
-    setDealData((prevData) => ({
-      ...prevData,
-      Pakka: total - prevData.Kacha, // Pakka = Total - Kacha
-    }));
-  }, [total]);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    if (name === "Kacha") {
-      const kachaValue = Number(value);
-      // Ensure Kacha does not exceed Total
-      if (kachaValue <= total) {
-        setDealData((prevData) => ({
-          ...prevData,
-          Kacha: kachaValue,
-          Pakka: total - kachaValue, // Update Pakka automatically
-        }));
-      }
-    } else {
-      setDealData({ ...dealData, [name]: value });
-    }
+    setDealData({ ...dealData, [name]: value });
   };
 
   const handleSubmit = async (e) => {
@@ -83,7 +74,7 @@ const AddDeal = () => {
     try {
       await addDeal({ ...dealData, DealNo: dealNo, Total: total });
       alert("Deal added successfully!");
-      navigate("/home"); // Navigate to home after successful submission
+      navigate("/home");
     } catch (error) {
       alert("Error adding deal: " + error.message);
     }
@@ -102,10 +93,9 @@ const AddDeal = () => {
           0
         );
         setTotal(totalSum);
-        // Update Pakka when Total changes
         setDealData((prevData) => ({
           ...prevData,
-          Pakka: totalSum - prevData.Kacha,
+          Total: totalSum
         }));
       } else {
         console.error("Unexpected response format:", response);
@@ -132,21 +122,14 @@ const AddDeal = () => {
               <div className="modal-row">
                 <div className="modal-column">
                   <label>Deal Date</label>
-                  <input
-                    type="date"
-                    name="DealDate"
-                    onChange={handleChange}
-                    required
-                  />
+                  <input type="date" name="DealDate" onChange={handleChange} required />
                 </div>
                 <div className="modal-column">
                   <label>Company Name</label>
                   <select name="CompanyName" onChange={handleChange} required>
                     <option value="">Select Company Name</option>
                     {names.map((name, index) => (
-                      <option key={index} value={name.CompanyName}>
-                        {name.CompanyName}
-                      </option>
+                      <option key={index} value={name.CompanyName}>{name.CompanyName}</option>
                     ))}
                   </select>
                 </div>
@@ -165,42 +148,12 @@ const AddDeal = () => {
 
               <div className="modal-row">
                 <div className="modal-column">
-                  <label>Kacha</label>
-                  <input
-                    type="number"
-                    name="Kacha"
-                    value={dealData.Kacha}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="modal-column">
-                  <label>Pakka</label>
-                  <input
-                    type="number"
-                    name="Pakka"
-                    value={dealData.Pakka}
-                    disabled
-                  />
-                </div>
-              </div>
-
-              <div className="modal-row">
-                <div className="modal-column">
                   <label>Free Service</label>
-                  <input
-                    type="text"
-                    name="FreeService"
-                    onChange={handleChange}
-                  />
+                  <input type="text" name="FreeService" onChange={handleChange} />
                 </div>
                 <div className="modal-column">
                   <label>Status</label>
-                  <input
-                    type="text"
-                    name="Status"
-                    onChange={handleChange}
-                    required
-                  />
+                  <input type="text" name="Status" onChange={handleChange} required />
                 </div>
               </div>
 
@@ -211,13 +164,86 @@ const AddDeal = () => {
                 </div>
               </div>
 
+              <div className="modal-row">
+                <div className="modal-column">
+                  <label>Agent</label>
+                  <input type="text" name="Agent" onChange={handleChange} />
+                </div>
+                <div className="modal-column">
+                  <label>Commission</label>
+                  <input type="number" name="Commission" onChange={handleChange} />
+                </div>
+              </div>
+
+              <div className="modal-row">
+                <div className="modal-column">
+                  <label>Tentative Delivery Date</label>
+                  <input type="date" name="Tentative_Delivery_Date" onChange={handleChange} />
+                </div>
+                <div className="modal-column">
+                  <label>Interest</label>
+                  <input type="number" name="Interest" onChange={handleChange} />
+                </div>
+              </div>
+
+              <div className="modal-row">
+                <div className="modal-column">
+                  <label>Machine Warranty</label>
+                  <input type="text" name="Machine_Warranty" onChange={handleChange} />
+                </div>
+                <div className="modal-column">
+                  <label>Accessories</label>
+                  <input type="text" name="Accessories" onChange={handleChange} />
+                </div>
+              </div>
+
+              <div className="modal-row">
+                <div className="modal-column">
+                  <label>Others</label>
+                  <input type="text" name="Others" onChange={handleChange} />
+                </div>
+                <div className="modal-column">
+                  <label>Quantity</label>
+                  <input type="number" name="Quantity" onChange={handleChange} />
+                </div>
+              </div>
+
+              <div className="modal-row">
+                <div className="modal-column">
+                  <label>Invoice Value</label>
+                  <input type="number" name="Invoice_Value" onChange={handleChange} />
+                </div>
+                <div className="modal-column">
+                  <label>Cash</label>
+                  <input type="number" name="Cash" onChange={handleChange} />
+                </div>
+              </div>
+
+              <div className="modal-row">
+                <div className="modal-column">
+                  <label>Bank</label>
+                  <input type="number" name="Bank" onChange={handleChange} />
+                </div>
+                <div className="modal-column">
+                  <label>Booking Amount</label>
+                  <input type="number" name="Booking_Amt" onChange={handleChange} />
+                </div>
+              </div>
+
+              <div className="modal-row">
+                <div className="modal-column">
+                  <label>Before Delivery</label>
+                  <input type="number" name="Before_Delivery" onChange={handleChange} />
+                </div>
+                <div className="modal-column">
+                  <label>Balance Payment</label>
+                  <input type="number" name="Balance_Payment" onChange={handleChange} />
+                </div>
+              </div>
+
               <div className="button-container">
                 <button type="submit">Add Deal</button>
-                <button
-                  type="button"
-                  className="close-modal-btn"
-                  onClick={handleClose}
-                >
+                <button type="button" className="close-modal-btn" onClick={handleClose}>
                   Close
                 </button>
               </div>

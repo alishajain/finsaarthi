@@ -2,11 +2,37 @@ const db = require("../db/database");
 
 // Add deal details
 const addDealDetail = async (req, res) => {
-  const { DealNo, Model, Quantity, Price, Total, UserId } = req.body;
+  const {
+    DealNo,
+    Model,
+    Quantity,
+    Price,
+    Total,
+    UserId,
+    Guage,
+    year,
+    Invoice_Value,
+    GST_value
+  } = req.body;
 
   try {
-    const query = `INSERT INTO deal_details (DealNo, Model, Quantity, Price, Total, UserId) VALUES (?, ?, ?, ?, ?, ?)`;
-    await db.query(query, [DealNo, Model, Quantity, Price, Total, UserId]);
+    const query = `
+      INSERT INTO deal_details 
+      (DealNo, Model, Quantity, Price, Total, UserId, Guage, year, Invoice_Value, GST_value)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `;
+    await db.query(query, [
+      DealNo,
+      Model,
+      Quantity,
+      Price,
+      Total,
+      UserId,
+      Guage,
+      year,
+      Invoice_Value,
+      GST_value
+    ]);
     res.status(201).json({ message: "Deal detail added successfully" });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -37,7 +63,7 @@ const getTotalByDealNo = async (req, res) => {
     const query = "SELECT Total FROM deal_details WHERE DealNo = ?";
     const [details] = await db.query(query, [dealNo]);
     if (details.length === 0) {
-      return res.status(404).json({ message: "Total Not found" });
+      return res.status(404).json({ message: "Total not found" });
     }
     res.status(200).json(details);
   } catch (error) {
@@ -48,17 +74,35 @@ const getTotalByDealNo = async (req, res) => {
 // Update deal detail by DealNo
 const updateDealDetail = async (req, res) => {
   const { dealNo } = req.params;
-  const { Model, Quantity, Price, Total, UserId } = req.body;
+  const {
+    Model,
+    Quantity,
+    Price,
+    Total,
+    UserId,
+    Guage,
+    year,
+    Invoice_Value,
+    GST_value
+  } = req.body;
 
   try {
-    const query = `UPDATE deal_details SET Model = ?, Quantity = ?, Price = ?, Total = ?, UserId = ?, Updated_at = NOW() WHERE DealNo = ?`;
+    const query = `
+      UPDATE deal_details 
+      SET Model = ?, Quantity = ?, Price = ?, Total = ?, UserId = ?, Guage = ?, year = ?, Invoice_Value = ?, GST_value = ?
+      WHERE DealNo = ?
+    `;
     const [result] = await db.query(query, [
       Model,
       Quantity,
       Price,
       Total,
       UserId,
-      dealNo,
+      Guage,
+      year,
+      Invoice_Value,
+      GST_value,
+      dealNo
     ]);
 
     if (result.affectedRows === 0) {
