@@ -1,139 +1,151 @@
 /* Modal overlay */
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 /* Modal box */
 .modal {
-    background-color: white;
-    padding: 20px;
-    width: 80%;
-    height: auto;
-    max-height: 80vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
+  background-color: white;
+  padding: 20px;
+  width: 80%;
+  height: auto;
+  max-height: 80vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 /* Modal form layout */
 .modal-form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 /* Row of input columns */
 .modal-row {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
 }
 
 /* Column inside the form */
 .modal-column {
-    flex: 1;
-    min-width: 200px;
-    margin-right: 20px; /* Add a gap between the input columns */
+  flex: 1;
+  min-width: 200px;
+  margin-right: 20px; /* Add a gap between the input columns */
 }
 
 /* Input, select, and textarea styling */
 input,
 select,
 textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    display: block;
-    box-sizing: border-box;
-    font-size: 16px; /* Increased font size for better readability */
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: block;
+  box-sizing: border-box;
+  font-size: 16px; /* Increased font size for better readability */
 }
 
 /* Specific styles for select dropdown */
 select {
-    -webkit-appearance: none; /* Remove default styling in some browsers */
-    -moz-appearance: none; /* Remove default styling in some browsers */
-    appearance: none; /* Remove default styling in some browsers */
+  -webkit-appearance: none; /* Remove default styling in some browsers */
+  -moz-appearance: none; /* Remove default styling in some browsers */
+  appearance: none; /* Remove default styling in some browsers */
 }
 
 select:focus {
-    outline: none;
-    border-color: #007BFF; /* Add blue border color when focused */
+  outline: none;
+  border-color: #007bff; /* Add blue border color when focused */
 }
 
 /* Button styling */
 button {
-    padding: 10px 20px;
-    background-color: #224f80;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
+  padding: 10px 20px;
+  background-color: #224f80;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
 }
 
 button:hover {
-    background-color: #94beeb;
+  background-color: #94beeb;
 }
 
 /* Close button styling */
 .close-modal-btn {
-    background-color: #a7241a;
-    color: white;
-    margin-top: 10px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    width: auto;
+  background-color: #a7241a;
+  color: white;
+  margin-top: 10px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: auto;
 }
 
 .close-modal-btn:hover {
-    background-color: #d32f2f;
+  background-color: #d32f2f;
 }
 
 /* Error styling */
 .modal-column.error input,
 .modal-column.error select {
-    border: 2px solid red;
+  border: 2px solid red;
 }
 
 .error-message {
-    color: red;
-    font-size: 12px;
-    margin-top: 5px;
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
 }
 
 /* Align buttons on the same row */
 .button-container {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
 button[type="submit"] {
-    width: auto;
+  width: auto;
 }
 
 /* Styles for Remarks textarea */
 .modal-column textarea {
-    width: 100%;
-    height: 100px;
-    padding: 8px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: none;
+  width: 100%;
+  height: 100px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+}
+
+fieldset {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+}
+legend {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
 }
